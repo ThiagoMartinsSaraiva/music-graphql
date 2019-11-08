@@ -9,20 +9,32 @@ const typeDefs = gql`
   type Music {
     name: String!
     duration: Float!
-    rate: Int!
+    rate: Int
   }
   
   type Query {
     musics: [Music]
     musicByName(name: String): Music
   }
+
+  type Mutation {
+    createMusic(name: String! duration: Float! rate: Int): Music
+  }
 `
 
 const resolvers = {
   Query: {
     musics: () => musics,
-    musicByName(_, args) {
-      return musics.find(music => music.name == args.name)
+    musicByName(_, { name }) {
+      return musics.find(music => music.name == name)
+    }
+  },
+
+  Mutation: {
+    createMusic: (_, { name, duration, rate }) => {
+      const music = { name, duration, rate }
+      musics.push(music)
+      return music
     }
   }
 }
