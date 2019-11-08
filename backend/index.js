@@ -1,26 +1,24 @@
 const { ApolloServer, gql } = require('apollo-server')
 
+const musics = [
+  { name: 'Run', duration: 3.43 },
+  { name: 'Oh no', duration: 4.57 }
+]
+
 const typeDefs = gql`
-  type User {
+  type Music {
     name: String!
-    age: Int!
+    duration: Float!
   }
-
-  type Hero {
-    name: String!
-    power: String!
-  }
-
+  
   type Query {
-    user: User!
-    hero: Hero!
+    music: [Music]
   }
 `
 
 const resolvers = {
   Query: {
-    user: () => { return { name: 'Thiago Saraiva', age: 19 } },
-    hero: () => { return { name: 'Batman', power: 'Just a normal rich man' } }
+    music: () => musics
   }
 }
 
