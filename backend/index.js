@@ -6,21 +6,21 @@ const typeDefs = gql`
     age: Int!
   }
 
+  type Hero {
+    name: String!
+    power: String!
+  }
+
   type Query {
-    ola: String
-    user: User
+    user: User!
+    hero: Hero!
   }
 `
 
 const resolvers = {
   Query: {
-    ola: () => 'Bom dia',
-    user() {
-      return {
-        name: 'Thiago Saraiva',
-        age: 19
-      }
-    }
+    user: () => { return { name: 'Thiago Saraiva', age: 19 } },
+    hero: () => { return { name: 'Batman', power: 'Just a normal rich man' } }
   }
 }
 
