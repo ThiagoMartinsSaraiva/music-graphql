@@ -13,13 +13,17 @@ const typeDefs = gql`
   }
   
   type Query {
-    music: [Music]
+    musics: [Music]
+    musicByName(name: String): Music
   }
 `
 
 const resolvers = {
   Query: {
-    music: () => musics
+    musics: () => musics,
+    musicByName(_, args) {
+      return musics.find(music => music.name == args.name)
+    }
   }
 }
 
