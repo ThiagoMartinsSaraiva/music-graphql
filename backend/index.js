@@ -1,6 +1,17 @@
 const { ApolloServer, gql } = require('apollo-server-express')
 const app = require('express')()
 
+app.get('/', (req, res) => {
+  console.log(req.params);
+  
+  res.send('OLÁ')
+})
+
+app.use('/', (req, res, next) => {
+  console.log(res)
+  next()
+})
+
 const musics = [
   { name: 'Run', duration: 3.43, rate: 10 },
   { name: 'Oh no', duration: 4.57, rate: 10 }
