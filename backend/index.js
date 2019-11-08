@@ -1,4 +1,5 @@
-const { ApolloServer, gql } = require('apollo-server')
+const { ApolloServer, gql } = require('apollo-server-express')
+const app = require('express')()
 
 const musics = [
   { name: 'Run', duration: 3.43, rate: 10 },
@@ -44,6 +45,6 @@ const server = new ApolloServer({
   resolvers
 })
 
-server.listen().then(({url}) => {
-  console.log(`Server running at ${url}`)
-})
+server.applyMiddleware({ app })
+
+app.listen({ port: 4000 }, () => console.log(`🚀 Server ready at http://localhost:4000${server.graphqlPath}`))
