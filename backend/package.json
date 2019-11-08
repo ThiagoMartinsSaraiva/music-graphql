@@ -1,0 +1,25 @@
+{
+  "name": "music-graphql",
+  "version": "1.0.0",
+  "description": "a music api using node.js and graphql",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon --ext js,graphql"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ThiagoMartinsSaraiva/music-graphql.git"
+  },
+  "keywords": [
+    "graphql",
+    "node.js",
+    "javascript",
+    "api"
+  ],
+  "author": "Thiago Martins Saraiva",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ThiagoMartinsSaraiva/music-graphql/issues"
+  },
+  "homepage": "https://github.com/ThiagoMartinsSaraiva/music-graphql#readme"
+}
