@@ -1,14 +1,11 @@
 const { ApolloServer, gql } = require('apollo-server-express')
 const app = require('express')()
 
-app.get('/', (req, res) => {
-  console.log(req.params);
-  
+app.get('/', (req, res) => {  
   res.send('OLÁ')
 })
 
 app.use('/', (req, res, next) => {
-  console.log(res)
   next()
 })
 
